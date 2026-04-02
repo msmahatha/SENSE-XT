@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { InnovationsSection } from "@/components/sections/InnovationsSection";
+
+export const metadata: Metadata = {
+  title: "Diagnostic Products",
+  description:
+    "Discover Sense-XT's next-generation hardware platforms: the Dengue Detection electrochemical sensor and AI Diagnostic Hardware backed by India's National Quantum Mission.",
+};
+
 
 export default function ProductPage() {
   return (

@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { OverviewSection } from "@/components/sections/OverviewSection";
 import { ApplicationsSection } from "@/components/sections/ApplicationsSection";
+
+export const metadata: Metadata = {
+  title: "Research & Development",
+  description:
+    "Explore Sense-XT's R&D wing: high-precision electrochemical biosensors, quantum fluorescence nanodiamonds, and AI-powered ultra-early viral tracking.",
+};
 
 export default function RNDPage() {
   return (

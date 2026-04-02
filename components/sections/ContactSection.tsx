@@ -53,7 +53,7 @@ export function ContactSection() {
             Join the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 glow-cyan">Vanguard.</span>
           </h2>
           <p className="text-neutral-400 font-light max-w-2xl text-lg lg:mx-0 mx-auto">
-            Become a part of the next generation of precision diagnostic engineering. We are actively looking for visionaries to build India's deep-tech healthcare future.
+            Become a part of the next generation of precision diagnostic engineering. We are actively looking for visionaries to build India&apos;s deep-tech healthcare future.
           </p>
         </motion.div>
 

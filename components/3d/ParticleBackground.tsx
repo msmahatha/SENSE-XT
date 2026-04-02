@@ -5,29 +5,28 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { PointMaterial, Points } from "@react-three/drei";
 import * as THREE from "three";
 
+const count = 5000;
+const initialPositions = new Float32Array(count * 3);
+for (let i = 0; i < count; i++) {
+  const r = 10 * Math.cbrt(Math.random());
+  const theta = Math.random() * 2 * Math.PI;
+  const phi = Math.acos(2 * Math.random() - 1);
+  
+  const x = r * Math.sin(phi) * Math.cos(theta);
+  const y = r * Math.sin(phi) * Math.sin(theta);
+  const z = r * Math.cos(phi);
+  
+  initialPositions[i * 3] = x;
+  initialPositions[i * 3 + 1] = y;
+  initialPositions[i * 3 + 2] = z;
+}
+
 function ParticleCloud() {
   const ref = useRef<THREE.Points>(null);
   const { mouse, viewport } = useThree();
 
   // Generate random points in a sphere
-  const sphere = useMemo(() => {
-    const count = 5000;
-    const positions = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const r = 10 * Math.cbrt(Math.random());
-      const theta = Math.random() * 2 * Math.PI;
-      const phi = Math.acos(2 * Math.random() - 1);
-      
-      const x = r * Math.sin(phi) * Math.cos(theta);
-      const y = r * Math.sin(phi) * Math.sin(theta);
-      const z = r * Math.cos(phi);
-      
-      positions[i * 3] = x;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = z;
-    }
-    return positions;
-  }, []);
+  const sphere = useMemo(() => initialPositions, []);
 
   useFrame((state, delta) => {
     if (ref.current) {
